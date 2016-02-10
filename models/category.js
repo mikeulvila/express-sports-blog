@@ -23,6 +23,18 @@ module.exports.getCategories = function (callback, limit) {
 
 //add category
 module.exports.addCategory = function (category, callback) {
+  // mongoose method .create
   Category.create(category, callback);
 }
+
 // Get single category function
+module.exports.getCategoryById = function (id, callback) {
+  // mongoose method .findById
+  Category.findById(id, callback);
+}
+
+//update category
+module.exports.updateCategory = function (query, update, options, callback) {
+  // mongoose method .findOneAndUpdate
+  Category.findOneAndUpdate(query, update, options, callback);
+}
