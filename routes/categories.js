@@ -29,7 +29,19 @@ router.post('/add', function (req, res) {
       errors: errors
     });
   } else {
-    res.send('PASSED');
+    var category = new Category();
+    category.title = req.body.title;
+    category.description = req.body.description;
+    // call add category function
+    Category.addCategory(category, function (err, category) {
+      if (err) {
+      res.send(err);
+      } else {
+        req.flash('sucess', 'Category Saved');
+        res.redirect('/manage/categories');
+      }
+    });
   }
 })
+
 module.exports = router;
