@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 // mongoose schema
-var categorySchema = mongoose.schema({
+var categorySchema = mongoose.Schema({
   title: {
     type: 'String'
   },
@@ -17,5 +17,7 @@ var categorySchema = mongoose.schema({
 var Category = module.exports = mongoose.model('Category', categorySchema);
 
 // Get categories function
-
+module.exports.getCategories = function (callback, limit) {
+  Category.find(callback).limit(limit).sort({title: 1});
+}
 // Get single category function
