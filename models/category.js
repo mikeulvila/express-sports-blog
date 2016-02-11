@@ -2,12 +2,8 @@ var mongoose = require('mongoose');
 
 // mongoose schema
 var categorySchema = mongoose.Schema({
-  title: {
-    type: 'String'
-  },
-  description: {
-    type: 'String'
-  },
+  title: String,
+  description: String,
   created_at: {
     type: Date,
     default: Date.now

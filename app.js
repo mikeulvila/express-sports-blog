@@ -9,7 +9,7 @@ var expressValidator = require('express-validator');
 var flash = require('connect-flash');
 
 var mongoose = require('mongoose');
-// Mongoose connect
+// Mongoose create the database connection
 mongoose.connect('mongodb://localhost/sportsblog');
 var db = mongoose.connection;
 
