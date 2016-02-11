@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
       res.send(err);
     } else {
       res.render('index', {
-        title: 'Articles',
+        title: 'Express',
         articles: articles
       })
     }
