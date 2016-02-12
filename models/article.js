@@ -45,4 +45,14 @@ module.exports.updateArticle = function (query, update, options, callback) {
   Article.findOneAndUpdate(query, update, options, callback);
 }
 
+//ADD COMMENT
+module.exports.addComment = function (query, comment, callback) {
+  // mongoose method .findOneAndUpdate
+  Article.update(query,
+      { $push: {
+          'comments': comment
+        }
+      }, callback);
+}
+
 
