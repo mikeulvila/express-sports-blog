@@ -29,7 +29,22 @@ router.get('/show/:id', function(req, res, next) {
 });
 
 router.get('/category/:category_id', function(req, res, next) {
-  res.render('articles');
+  Article.getArticles({category: req.params.category_id}, function (err, articles) {
+    if (err) {
+      console.log('Error: ' + err);
+      res.send(err);
+    } else {
+      Category.getCategoryById(req.params.category_id, function (err, category) {
+        if (err) throw err;
+
+          res.render('articles', {
+              'title': category.title,
+              'articles': articles
+          });
+      });
+    }
+
+  });
 });
 
 // add article
